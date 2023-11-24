@@ -35,19 +35,19 @@ $(function() {
 		$("#page_unsupp").show();
 	}
 
-	// if (isChromeBrowser && isDesktop) {
-	// 	$(".app_showcase").append(
-	// 		'<a class="app_chrome" href="' + urlChrome + '">' +
-	// 			'<img src="./img/app/chrome.png" alt="Chrome App" />' +
-	// 		'</a>'
-	// 	);
-	// }
+	if(isChromeBrowser && isDesktop) {
+	$(".app_showcase").append(
+		
+			 '<a class="app_chrome" href="https://discord.gg/rwehcr">' +
+			 '<img src="./img/app/discord.png" alt="Discord Group" />' +
+			 '</a'
+			 
+	 	);
+	 }
 
 	if (!isiOS) {
 		$(".app_showcase").append(
-			'<a class="app_android" href="' + urlGPlay + '">' +
-				'<img src="./img/app/google-play-badge.png" alt="Get it on Google Play." />' +
-			'</a>'
+			
 		);
 	}
 
