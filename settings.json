@@ -38,13 +38,13 @@
 			"room_max": 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999,
 			"owner": null,
 			"pitch": {
-				"max": 125,
-				"min": 15,
+				"max": 500,
+				"min": 0,
 				"default": "random"
 			},
 			"speed": {
-				"max": 275,
-				"min": 125,
+				"max": 450,
+				"min": 0,
 				"default": "random"
 			},
 			"defaultName": "Anonymous"
@@ -87,13 +87,13 @@
 			"room_max": 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999,
 			"owner": null,
 			"pitch": {
-				"max": 125,
-				"min": 15,
+				"max": 500,
+				"min": 0,
 				"default": "random"
 			},
 			"speed": {
-				"max": 275,
-				"min": 125,
+				"max": 450,
+				"min": 0,
 				"default": "random"
 			},
 			"defaultName": "Anonymous"
@@ -145,6 +145,7 @@
 		"rover",
 		"roverpope",
 		"seamus",
+		"toad",
 		"toadette",
 		"toadettepope",
 		"unbojih",
