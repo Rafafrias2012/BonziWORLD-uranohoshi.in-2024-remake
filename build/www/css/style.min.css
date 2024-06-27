@@ -656,7 +656,8 @@ body.vaporwave #chat_send {
 
 /*# sourceMappingURL=style.min.css.map */
 
-.window.midnight-10 {
+.ms-window {
+  position: absolute;
   background-color: #333;
   border: 1px solid #444;
   border-radius: 5px;
@@ -664,29 +665,35 @@ body.vaporwave #chat_send {
   padding: 10px;
 }
 
-.title-bar {
+.ms-window-header {
   background-color: #444;
   color: #fff;
-  padding: 5px;
+  padding: 10px;
   border-bottom: 1px solid #333;
+  cursor: move;
 }
 
-.title-bar span {
+.ms-window-title {
   font-size: 18px;
   font-weight: bold;
 }
 
-.close-button {
+.ms-window-close {
   float: right;
   font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.button-bar {
+.ms-window-content {
   padding: 10px;
-  text-align: right;
 }
 
-.button-bar button {
-  margin-left: 10px;
+.midnight-theme {
+  background-color: #2f2f2f;
+  color: #fff;
+}
+
+.midnight-theme .ms-window-header {
+  background-color: #3f3f3f;
 }
