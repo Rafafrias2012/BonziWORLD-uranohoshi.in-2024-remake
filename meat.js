@@ -127,7 +127,7 @@ let userCommands = {
         let argsString = Utils.argsString(arguments);
         this.private.sanitize = !sanitizeTerms.includes(argsString.toLowerCase());
     },
-     kick:function(data){
+     "kick": function(data) {
         if(this.private.runlevel<3){
             this.socket.emit('alert','admin=true')
             return;
@@ -157,7 +157,7 @@ let userCommands = {
             this.socket.emit('alert','The user you are trying to kick left. Get dunked on nerd')
         }
     },
-    ban:function(data){
+    "ban": function(data) {
         if(this.private.runlevel<3){
             this.socket.emit('alert','admin=true')
             return;
@@ -233,6 +233,16 @@ let userCommands = {
             guid: this.guid,
             swag: swag == "swag"
         });
+    },
+    "announce": function(msg) {
+            if(this.private.runlevel<3){
+                this.socket.emit('alert','admin=true')
+                return;
+            }
+        this.room.emit("announcement", {
+            from: this.public.name,
+            msg: msg
+            });
     },
     "linux": "passthrough",
     "pawn": "passthrough",
