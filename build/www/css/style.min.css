@@ -656,95 +656,198 @@ body.vaporwave #chat_send {
 
 /*# sourceMappingURL=style.min.css.map */
 
-#log_cont,
-.msWindow_cont {
-    position: absolute;
-    box-sizing: border-box;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 28px, rgba(0, 0, 0, 0.25) 31px, rgba(0, 0, 0, 0) 31px), linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0) 3px), linear-gradient(180deg, rgba(0, 0, 0, 0) 0px, rgba(255, 255, 255, 0.05) 31px, rgba(0, 0, 0, 0) 31.2px), linear-gradient(180deg, #326999 0px, #326499 32px, rgba(0, 0, 0, 0) 32px), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0px, rgba(0, 0, 0, 0) 4px), linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0px, rgba(0, 0, 0, 0) 4px), linear-gradient(270deg, rgba(255, 255, 255, 0.2) 0px, rgba(0, 0, 0, 0) 4px);
-    border: 1px solid #2a4b7a;
-    padding: 0px 5px 5px 5px;
-    border-top-right-radius: 6px;
-    z-index: 1;
+:root {
+    --window-top: 120px;
+    --window-left: 100px;
+    --window-width: 600px;
+    --window-height: 350px;
 }
 
-#log_cont {
+.windows-open-window {
+    position: absolute;
+    top: var(--window-top);
+    left: var(--window-left);
+    border: #101010 solid 1px;
+    box-shadow: 0 1px 5px #0004;
+    width: var(--window-width);
+    height: var(--window-height);
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.windows-open-window .window-drags>* {
+    position: absolute;
+    /* background-color: #0004; */
+    user-select: none;
+    z-index: 8;
+}
+
+.windows-open-window .window-drags-top {
+    width: calc(100% - 6px);
+    height: 3px;
+    top: 0;
+    left: 3px;
+    cursor: n-resize;
+}
+
+.windows-open-window .window-drags-left {
+    width: 3px;
+    height: calc(100% - 6px);
+    top: 3px;
+    left: 0px;
+    cursor: e-resize;
+}
+
+.windows-open-window .window-drags-bottom {
+    width: calc(100% - 6px);
+    height: 3px;
+    bottom: 0;
+    left: 3px;
+    cursor: n-resize;
+}
+
+.windows-open-window .window-drags-right {
+    width: 3px;
+    height: calc(100% - 6px);
+    top: 3px;
+    right: 0px;
+    cursor: e-resize;
+}
+
+.windows-open-window .window-drags-top-left {
+    width: 3px;
+    height: 3px;
     top: 0;
     left: 0;
-    width: 350px;
-    max-width: calc(100% - 200px);
-    height: calc(100% - 32px);
+    cursor: nw-resize;
 }
 
-.msWindow_cont {
-    z-index: 20;
-    border-top-left-radius: 6px;
+.windows-open-window .window-drags-top-right {
+    width: 3px;
+    height: 3px;
+    top: 0;
+    right: 0;
+    cursor: ne-resize;
 }
 
-.msWindow_cont p {
-    user-select: none;
-    max-width: 100%;
-    max-height: 100%;
+.windows-open-window .window-drags-bottom-left {
+    width: 3px;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    cursor: ne-resize;
 }
 
-#log_title,
-.msWindow_title {
-    margin: 6px 0px 6px 4px;
-    color: white;
-    font-size: 16px;
-    text-shadow: 1.5px 1.5px rgba(0, 0, 0, 0.3);
+.windows-open-window .window-drags-bottom-right {
+    width: 3px;
+    height: 3px;
+    bottom: 0;
+    right: 0;
+    cursor: nw-resize;
 }
 
-#log_body,
-.msWindow_body {
-    background-color: white;
-    box-sizing: border-box;
-    padding: 0px 5px 10px 5px;
-    width: 100%;
-    height: calc(100% - 29px);
-    margin: 0;
-    overflow-y: scroll;
-    word-break: break-word;
-}
-
-.msWindow_body {
-    padding: 10px 15px;
-}
-
-#log_body::-webkit-scrollbar,
-.msWindow_body::-webkit-scrollbar {
-    display: none;
-}
-
-#log_body p {
-    margin: 0;
-    padding: 7px 0px 0px 0px;
-}
-
-.log_close {
-    position: relative;
-    border: none;
-    background-image: url("https://bonziworld.org/img/assets/xpbutton.svg");
-    background-size: 100%;
-    width: 22px;
-    height: 22px;
-    font-size: 19px;
-    top: -2px;
-    padding: 0;
-    color: white;
-    border-radius: 3px;
-    float: right;
-    margin-left: 5px;
-    transition: 0.1s;
-}
-
-.log_close:hover {
-    filter: brightness(120%);
-}
-
-.log_close i {
-    margin: 0;
+.windows-open-window .window-title-bar {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 34px;
+    background-color: #fff;
+    user-select: none;
+}
+
+.windows-open-window .window-title-bar .window-icon {
+    width: 34px;
+    height: 34px;
+    float: left;
+}
+
+.windows-open-window .window-title-bar .window-icon img {
+    width: 60%;
+    height: 60%;
+    margin: 20%;
+}
+
+.windows-open-window .window-title-bar .window-title {
+    line-height: 34px;
+    float: left;
+    width: calc(100% - 184px);
+    font-size: 14px;
+}
+
+.windows-open-window .window-title-bar .window-czbtns {
+    float: right;
+}
+
+.windows-open-window .window-title-bar .window-czbtns>* {
+    float: left;
+    width: 50px;
+    height: 34px;
+    background-size: 12px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.windows-open-window .window-title-bar .window-czbtns>*:hover {
+    background-color: #eee;
+}
+
+.windows-open-window .window-title-bar .window-czbtns .window-close {
+    background-image: url(https://siquan001.github.io/Win10online/img/icon/ui/close.png);
+}
+
+.windows-open-window .window-title-bar .window-czbtns .window-close:hover {
+    background-color: #0ff;
+    filter: invert(100%);
+}
+
+.windows-open-window .window-title-bar .window-czbtns .window-max-size {
+    background-image: url(https://siquan001.github.io/Win10online/img/icon/ui/maxmin.png);
+}
+
+.windows-open-window .window-title-bar .window-czbtns .window-min-size {
+    background-image: url(https://siquan001.github.io/Win10online/img/icon/ui/minimize.png);
+}
+
+.windows-open-window .window-title-bar .window-czbtns .window-def-size {
+    background-image: url(https://siquan001.github.io/Win10online/img/icon/ui/maximize.png);
+}
+
+.windows-open-window .window-content,
+.windows-open-window .window-quickframe {
+    position: absolute;
+    top: 34px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 34px);
+}
+
+.windows-open-window .window-quickframe {
+    z-index: 4;
+    display: none;
+    user-select: none;
+}
+
+.windows-open-window .window-content iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.windows-open-window .loading-frame {
+    position: absolute;
+    z-index: 6;
+    top: 34px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 34px);
+    background-color: #fff;
+    transition: opacity .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.windows-open-window .loading-frame img {
+    width: 80px;
+    height: 80px;
 }
